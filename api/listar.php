@@ -1,19 +1,25 @@
 <?php
+
 require_once "conexao.php";
 
-//lista com base no que a voz da minha cabeça falou
+header("Content-Type: application/json");
+
 $sql = "SELECT * FROM jogos";
-$resultado = $conn->query($sql);
+$resultado = mysqli_query($conn, $sql);
 
+$jogos = array();
 
-$jogos = [];
-if ($resultado && $resultado->num_rows > 0) {
-    while($row = $resultado->fetch_assoc()) {
+if ($resultado) {
+
+    while ($row = mysqli_fetch_assoc($resultado)) {
         $jogos[] = $row;
     }
+    echo json_encode($jogos);
+
+} else {
+    echo json_encode(array(
+        "erro" => "Erro na consulta"
+    ));
 }
-
-echo json_encode($jogos);
-
-$conn->close();
+mysqli_close($conn);
 ?>

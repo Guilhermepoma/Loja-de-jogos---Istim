@@ -7,7 +7,7 @@ function listarJogos() {
     var listaDiv = document.getElementById("listaJogos");
 
     //busca os jogos no php
-    fetch("../api/listar.php")
+    fetch("api/listar.php")
         .then(res => res.json())
         .then(jogos => {
             //se não tiver nada no banco, avisa na tela
@@ -43,7 +43,7 @@ document.getElementById("adicionarForm").onsubmit = function(e) {
     var dados = new FormData(this);
 
     //manda os dados pro php via POST
-    fetch("../api/add.php", {
+    fetch("api/add.php", {
         method: 'POST',
         body: dados
     })
