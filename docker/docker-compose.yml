@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: php_app
+    ports:
+      - "8080:80"
+    volumes:
+      - ..:/var/www/html
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=higemax
+      - DB_PASSWORD=higemax123
+      - DB_NAME=istim
+    depends_on:
+      - mysql
+    develop:
+      watch:
+        - path: ..
+          action: sync
+          target: /var/www/html
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_app
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  mysql_data:
