@@ -7,5 +7,5 @@ CREATE TABLE IF NOT EXISTS jogos (
     nome VARCHAR(120) NOT NULL,
     descricao TEXT NOT NULL,
     valor DECIMAL(10,2) NOT NULL,
-    img VARCHAR(500) NOT NULL,
+    img VARCHAR(500) NOT NULL
 );

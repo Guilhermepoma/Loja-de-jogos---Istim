@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja de Jogos</title>
 </head>
+
 <body>
     <h1>Loja de Jogos</h1>
-    
+
     <div>
         <h2>Adicionar Jogo</h2>
         <form id="adicionarForm">
@@ -18,13 +20,26 @@
             <button type="submit">Adicionar</button>
         </form>
     </div>
-    
+
     <div>
         <h2>Lista de Jogos</h2>
         <button id="buscar">Atualizar Lista</button>
         <div id="listaJogos"></div>
     </div>
 
+    <div id="editarCard" style="display:none;">
+        <h2>Atualizar Jogo</h2>
+        <form id="editarForm">
+            <input type="hidden" id="editId" name="id">
+            <input type="text" id="editNome" name="nome" placeholder="Nome" required><br><br>
+            <input type="text" id="editDescricao" name="descricao" placeholder="Descrição" required><br><br>
+            <input type="number" id="editValor" name="valor" placeholder="Valor" step="0.01" min="0" required><br><br>
+            <input type="text" id="editImg" name="img" placeholder="URL da imagem"><br><br>
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>
