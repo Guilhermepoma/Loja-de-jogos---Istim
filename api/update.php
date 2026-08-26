@@ -7,6 +7,7 @@ $descricao = $_POST['descricao'];
 $valor     = $_POST['valor'];
 $img       = $_POST['img'];
 
+//reddit salvou aqui
 $sql  = "UPDATE jogos SET nome = ?, descricao = ?, valor = ?, img = ? WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ssdsi", $nome, $descricao, $valor, $img, $id);

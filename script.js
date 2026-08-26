@@ -1,3 +1,6 @@
+//cara, ta funfando, muito video e to com sono, boa noite
+
+
 function listarJogos() {
     var listaDiv = document.getElementById("listaJogos");
 
